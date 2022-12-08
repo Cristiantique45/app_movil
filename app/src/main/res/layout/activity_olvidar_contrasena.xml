@@ -4,119 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login">
+    tools:context=".olvidarContrasena">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-        <ImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:src="@drawable/logocoffee"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp"/>
-
-
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginTop="60dp"
             android:layout_marginLeft="55dp"
-            android:layout_marginRight="55dp"
-            android:layout_marginTop="60dp">
+            android:layout_marginRight="55dp">
 
-            <ImageButton
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/logogoogle"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="80dp"
-                android:background="@drawable/efecto_btngoogle"/>
-
-            <ImageButton
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/logofacebook"
-                android:background="@drawable/efecto_btnfacebook"/>
-            <ImageButton
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/logotwitter"
-                android:layout_marginLeft="80dp"
-                android:background="@drawable/efecto_btntwitter"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="55dp"
-            android:layout_marginLeft="55dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/iconousuario"
-                android:layout_gravity="center"
-                android:layout_marginRight="8dp"/>
-
-            <EditText
-                android:id="@+id/txtusuario"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/cardview_dark_background"
-                android:hint="Usuario"
-                android:textColorHint="@color/cardview_dark_background" />
+                android:layout_marginTop="10dp"
+                android:text="Ingresa tu correo para restablecer la contraseña"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:textColor="#32CD32"/>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="55dp"
-            android:layout_marginLeft="55dp">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/iconocontrasena"
-                android:layout_gravity="center"
-                android:layout_marginRight="8dp"/>
-
-            <EditText
-                android:id="@+id/txtcontrasena"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPassword"
-                tools:layout_editor_absoluteX="105dp"
-                tools:layout_editor_absoluteY="222dp" />
-
-
-
-        </LinearLayout>
-
-
-
-        <Button
-            android:id="@+id/btnsesion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="55dp"
-            android:backgroundTint="#8B4513"
-            android:text="INICIAR SESIÓN" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -125,16 +36,61 @@
             android:layout_marginRight="55dp">
 
             <TextView
-                android:id="@+id/btnolvidarcontrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Al correo que ingresaste se enviará un enlace para que puedas cambiar de contraseña"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:textColor="#623421"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="55dp"
+            android:layout_marginLeft="55dp">
+
+
+            <EditText
+                android:id="@+id/txtcorreocambiarcontrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/cardview_dark_background"
+                android:hint="Ingresa tu correo"
+                android:textColorHint="@color/cardview_dark_background" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnrestablecercontrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="55dp"
+            android:backgroundTint="#8B4513"
+            android:text="Restablecer contraseña" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginRight="55dp">
+
+            <TextView
+                android:id="@+id/btnvolverasesion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
-                android:text="¿Olvidaste tu contraseña?"
+                android:text="Volver a inicio de sesión"
                 android:clickable="true"
                 android:textColor="#623421"
                 android:layout_marginRight="10dp"/>
 
-    </LinearLayout>
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -151,7 +107,7 @@
                 android:layout_marginRight="10dp"/>
 
             <TextView
-                android:id="@+id/btnregistrarse"
+                android:id="@+id/btnvolveraregistrarse"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
@@ -165,5 +121,4 @@
 
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

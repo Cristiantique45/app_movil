@@ -13,6 +13,20 @@
         android:theme="@style/Theme.AppCoffee"
         tools:targetApi="31">
         <activity
+            android:name=".olvidarContrasena"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".registrarse"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".pantallaPrincipal"
             android:exported="false">
             <meta-data
