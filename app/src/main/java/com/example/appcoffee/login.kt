@@ -14,7 +14,7 @@ import com.google.firebase.ktx.Firebase
 
 class login : AppCompatActivity() {
     private lateinit var firebaseAuth : FirebaseAuth
-    private lateinit var authStateListener: AuthStateListener
+    private lateinit var authStateListener : FirebaseAuth.AuthStateListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,13 +28,12 @@ class login : AppCompatActivity() {
 
         firebaseAuth = Firebase.auth
 
-        btnsesion.setOnClickListener() {
+        btnsesion.setOnClickListener(){
             singIn(txtUsuario.text.toString(), txtContrasena.text.toString())
-
         }
 
-        btnuser_registrar.setOnClickListener() {
-            val i = Intent(this,registrarse::class.java)
+        btnuser_registrar.setOnClickListener(){
+            val i = Intent(this, registrarse::class.java)
             startActivity(i)
         }
 
@@ -43,21 +42,21 @@ class login : AppCompatActivity() {
             startActivity(b)
         }
     }
-    private fun singIn (email:String, password: String)
+
+    private fun singIn (email : String , password : String)
     {
         firebaseAuth.signInWithEmailAndPassword(email,password)
-            .addOnCompleteListener(this){ task ->
-                if(task.isSuccessful){
+            .addOnCompleteListener (this){ task->
+                if (task.isSuccessful){
                     val user = firebaseAuth.currentUser
-                    Toast.makeText(baseContext, "Autenticacion Exitosa", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext,"Autenticación exitosa", Toast.LENGTH_SHORT).show()
                     //aqui se va a la pantalla principal
                     val i = Intent(this,pantallaPrincipal::class.java)
                     startActivity(i)
                 }
-                else{
-                    Toast.makeText(baseContext, "Error de correo y/o contraseña", Toast.LENGTH_SHORT).show()
+                else {
+                    Toast.makeText(baseContext,"Error de correo y/o contraseña",Toast.LENGTH_SHORT).show()
                 }
-
-        }
+            }
     }
 }
