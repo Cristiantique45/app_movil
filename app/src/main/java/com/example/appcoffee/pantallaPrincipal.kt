@@ -1,5 +1,6 @@
 package com.example.appcoffee
 
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,14 +11,23 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class pantallaPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var drawer : DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_principal)
+
+        firebaseAuth = Firebase.auth
 
         val toolbar : Toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
@@ -32,6 +42,15 @@ class pantallaPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         val navigationView : NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
+
+
+
+    }
+
+
+    //Se crea para cuando demos click en el boton volver del telefono
+    override fun onBackPressed() {
+        return
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -39,6 +58,9 @@ class pantallaPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_item_one -> Toast.makeText(this, "Información acerca del cafe", Toast.LENGTH_SHORT).show()
             R.id.nav_item_two -> Toast.makeText(this, "Foro", Toast.LENGTH_SHORT).show()
             R.id.nav_item_tree -> Toast.makeText(this, "Reporte financiero", Toast.LENGTH_SHORT).show()
+            R.id.nav_item_six -> {
+                cerrarSesion()
+            }
 
 
         }
@@ -61,6 +83,14 @@ class pantallaPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSe
             return true
         }
         return super.onOptionsItemSelected(item)
+
+    }
+    //Funcion para cerrar sesión
+    private fun cerrarSesion(){
+        firebaseAuth.signOut()
+        Toast.makeText(baseContext,"Sesión cerrada, correctamente", Toast.LENGTH_SHORT).show()
+        val i = Intent(this,login::class.java)
+        startActivity(i)
 
     }
     }

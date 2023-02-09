@@ -154,6 +154,8 @@
                 android:backgroundTint="@color/cardview_dark_background"
                 android:hint="Ingrese su correo electronico"
                 android:textSize="14dp"
+                android:ems="10"
+                android:inputType="textEmailAddress"
                 android:textColorHint="@color/cardview_dark_background" />
 
         </LinearLayout>
@@ -275,8 +277,6 @@
                 android:textSize="15dp" />
 
         </LinearLayout>
-
-
 
     </LinearLayout>
 

@@ -38,7 +38,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Al correo que ingresaste se enviará un enlace para que puedas cambiar de contraseña"
+                android:text="Al correo que ingresaste se enviará un enlace para que puedas cambiar de contraseña (Si no lo encuentras, revisa la bandeja de spam)"
                 android:textSize="12dp"
                 android:textAlignment="center"
                 android:textColor="#623421"/>
@@ -57,8 +57,9 @@
                 android:id="@+id/txtcorreocambiarcontrasena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/cardview_dark_background"
+                android:backgroundTint="#623421"
                 android:hint="Ingresa tu correo"
+                android:inputType="textEmailAddress"
                 android:textColorHint="@color/cardview_dark_background" />
 
         </LinearLayout>
@@ -117,8 +118,6 @@
                 android:textSize="15dp" />
 
         </LinearLayout>
-
-
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,24 +26,21 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/mensaje"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/mensaje"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textSize="32sp"
-            tools:ignore="MissingConstraints" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="#63A355"
+        android:textSize="24sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="25dp" />
 
 
-    </LinearLayout>
+
+
+
 
 
 
