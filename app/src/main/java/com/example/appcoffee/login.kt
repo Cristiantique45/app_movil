@@ -41,7 +41,7 @@ class login : AppCompatActivity() {
             .requestEmail()
             .build()
 
-        //Autenticacion con google para iniciar sesion
+        //Autenticacion con google para iniciar sesion 
         cliente = GoogleSignIn.getClient(this,opcion)
 
         //Autenticacion con google para iniciar sesion
