@@ -1,6 +1,7 @@
 package com.example.appcoffee
 import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -76,7 +77,7 @@ class login : AppCompatActivity() {
             FirebaseAuth.getInstance().signInWithCredential(credencial)
                 .addOnCompleteListener { task ->
                     if(task.isSuccessful){
-                        val g = Intent(this,pantallaPrincipal::class.java)
+                        val g = Intent(this,biblioteca::class.java)
                         startActivity(g)
                     }
                     else{
@@ -91,7 +92,7 @@ class login : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(FirebaseAuth.getInstance().currentUser != null){
-            val g = Intent(this,pantallaPrincipal::class.java)
+            val g = Intent(this,biblioteca::class.java)
             startActivity(g)
         }
     }
@@ -109,7 +110,7 @@ class login : AppCompatActivity() {
                     if (verficacion == true){
                         Toast.makeText(baseContext,"Autenticación exitosa", Toast.LENGTH_SHORT).show()
                         //aqui se va a la pantalla principal
-                        val i = Intent(this,pantallaPrincipal::class.java)
+                        val i = Intent(this,biblioteca::class.java)
                         startActivity(i)
                     }
                     else{
@@ -123,3 +124,5 @@ class login : AppCompatActivity() {
             }
     }
 }
+
+
