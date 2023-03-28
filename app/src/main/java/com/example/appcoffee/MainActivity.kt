@@ -6,13 +6,25 @@ import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.widget.TextView
+import com.google.gson.Gson
+import java.io.IOException
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        val gson = Gson()
+
+        val json  = loadData("personas.json")
+
+        val persona = gson.fromJson(json, Response::class.java)
+
+        Log.d("RES", persona.grupo)
 
         startTimer()
 
@@ -23,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             while (true){
                 var textoInicial = "No tienes conexión"
 
-                val servConec = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+                val servConec = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
 
                 val infoRed = servConec.allNetworkInfo
 
@@ -46,6 +58,23 @@ class MainActivity : AppCompatActivity() {
 
             }
         }).start()
+    }
+    fun loadData(inFile: String): String {
+        var tContents = ""
+
+        try {
+            val stream = assets.open(inFile)
+
+            val size = stream.available()
+            val buffer =  ByteArray(size)
+            stream.read(buffer)
+            stream.close()
+            tContents = String(buffer)
+        } catch (e: IOException) {
+            // manejar excepciones aqui
+        }
+
+        return tContents
     }
     fun startTimer(){
         object:CountDownTimer(3000,1000){
