@@ -62,7 +62,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.536"
-        app:srcCompat="@drawable/reportefc" />
+        app:srcCompat="@drawable/reportefc"
+        tools:ignore="DuplicateIds" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -227,7 +228,7 @@
         app:layout_constraintVertical_bias="0.046" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/OtroimageView"
         android:layout_width="105dp"
         android:layout_height="64dp"
         app:layout_constraintBottom_toBottomOf="parent"

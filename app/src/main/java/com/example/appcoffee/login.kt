@@ -77,7 +77,7 @@ class login : AppCompatActivity() {
             FirebaseAuth.getInstance().signInWithCredential(credencial)
                 .addOnCompleteListener { task ->
                     if(task.isSuccessful){
-                        val g = Intent(this,biblioteca::class.java)
+                        val g = Intent(this,ConsumoServicios::class.java)
                         startActivity(g)
                     }
                     else{
@@ -92,13 +92,13 @@ class login : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(FirebaseAuth.getInstance().currentUser != null){
-            val g = Intent(this,biblioteca::class.java)
+            val g = Intent(this,ConsumoServicios::class.java)
             startActivity(g)
         }
     }
 
 
-    //funcion paea iniciar sesion
+    //funcion para iniciar sesion
     private fun singIn (email : String , password : String)
     {
         firebaseAuth.signInWithEmailAndPassword(email,password)
@@ -110,7 +110,7 @@ class login : AppCompatActivity() {
                     if (verficacion == true){
                         Toast.makeText(baseContext,"Autenticación exitosa", Toast.LENGTH_SHORT).show()
                         //aqui se va a la pantalla principal
-                        val i = Intent(this,biblioteca::class.java)
+                        val i = Intent(this,ConsumoServicios::class.java)
                         startActivity(i)
                     }
                     else{

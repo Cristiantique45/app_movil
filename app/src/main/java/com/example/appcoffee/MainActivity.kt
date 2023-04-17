@@ -9,6 +9,7 @@ import android.os.CountDownTimer
 import android.util.Log
 import android.widget.TextView
 import com.google.gson.Gson
+import retrofit2.Response
 import java.io.IOException
 
 
@@ -18,13 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val gson = Gson()
 
-        val json  = loadData("personas.json")
-
-        val persona = gson.fromJson(json, Response::class.java)
-
-        Log.d("RES", persona.grupo)
 
         startTimer()
 
